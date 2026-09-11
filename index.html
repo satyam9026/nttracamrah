@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <!-- Meta Pixel Code -->
+<!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -12,11 +12,11 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1606611971130712');
+fbq('init', '27864607293241628');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1606611971130712&ev=PageView&noscript=1"
+src="https://www.facebook.com/tr?id=27864607293241628&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
   <meta charset="UTF-8">
@@ -527,6 +527,11 @@ src="https://www.facebook.com/tr?id=1606611971130712&ev=PageView&noscript=1"
       <div class="rb-name">Nitin™</div>
     </div>
     <div class="rb-body">
+      <!-- 10 Seconds Redirect Countdown Timer -->
+      <div class="rb-countdown-container" id="timer-box">
+        Redirecting to Telegram in <span class="rb-countdown-num" id="countdown">10</span>s
+      </div>
+
       <div class="rb-stats">
         <div class="rb-stat">
           <div class="rb-stat-val">24/7</div>
@@ -613,15 +618,14 @@ src="https://www.facebook.com/tr?id=1606611971130712&ev=PageView&noscript=1"
         <div class="rb-footer-txt" style="text-align: center; width: 100%;">@Adzonn · Stay ahead with knowledge</div>
       </div>
       <div class="agency-banner">
-        <h4>SIVIADSAGENCY</h1>
-          <h5>DIGITAL MARKETING SOLUTIONS</h2>
-            <h6>DELHI <span>|</span> MUMBAI</h3>
+        <h4>SIVIADSAGENCY</h4>
+        <h5>DIGITAL MARKETING SOLUTIONS</h5>
+        <h6>DELHI <span>|</span> MUMBAI</h6>
       </div>
     </div>
     <style>
       .agency-banner {
         background: #0b1118;
-        /* min-height: 350px; */
         text-align: center;
         padding: 25px 20px;
         font-family: Arial, Helvetica, sans-serif;
@@ -630,35 +634,27 @@ src="https://www.facebook.com/tr?id=1606611971130712&ev=PageView&noscript=1"
       .agency-banner h4 {
         margin: 0;
         color: #f3f0e7;
-        /* font-size: clamp(50px, 9vw, 140px); */
         font-weight: 900;
-        /* letter-spacing: 2px; */
         line-height: 1;
       }
 
       .agency-banner h5 {
         margin: 0;
         color: #9abcc2;
-        /* font-size: clamp(25px, 3.2vw, 58px); */
         font-weight: 500;
-        /* letter-spacing: 3px; */
       }
 
       .agency-banner h6 {
         margin: 0;
         color: #f3f0e7;
-        /* font-size: clamp(24px, 3vw, 52px); */
         font-weight: 700;
-        /* letter-spacing: 3px; */
       }
 
       .rb-agency {
         display: inline-block;
         color: #9abcc2;
-        /* font-size: 16px; */
         font-weight: bold;
         text-decoration: none;
-        /* letter-spacing: 1px; */
       }
 
       .rb-agency:hover {
@@ -669,8 +665,29 @@ src="https://www.facebook.com/tr?id=1606611971130712&ev=PageView&noscript=1"
       NOT SEBI registered. No tips or investment advice provided. Trading involves financial risk. This site is not
       part of Meta. </div>
   </div>
-  </div>
 
+  <!-- 10 Seconds Countdown Redirect Script -->
+  <script>
+    let timeLeft = 10;
+    const countdownEl = document.getElementById('countdown');
+    const timerBox = document.getElementById('timer-box');
+    const telegramUrl = "https://t.me/+WXOJze1KMWUyY2Jl";
+
+    const countdownTimer = setInterval(() => {
+      timeLeft--;
+      if (countdownEl) countdownEl.textContent = timeLeft;
+
+      if (timeLeft <= 3 && countdownEl) {
+        countdownEl.classList.add('urgent');
+      }
+
+      if (timeLeft <= 0) {
+        clearInterval(countdownTimer);
+        if (timerBox) timerBox.innerHTML = "Redirecting to Telegram...";
+        window.location.href = telegramUrl;
+      }
+    }, 1000);
+  </script>
 </body>
 
 </html>
