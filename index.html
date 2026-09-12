@@ -466,42 +466,9 @@ src="https://www.facebook.com/tr?id=27864607293241628&ev=PageView&noscript=1"
       letter-spacing: 0.5px;
     }
 
-    /* Countdown Timer Styling */
+    /* Hidden Countdown Timer Styling */
     .rb-countdown-container {
-      background: rgba(20, 184, 166, 0.08);
-      border: 1px dashed rgba(20, 184, 166, 0.3);
-      border-radius: 12px;
-      padding: 12px;
-      text-align: center;
-      font-size: 13px;
-      color: #7fb8ae;
-      margin-bottom: 20px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-
-    .rb-countdown-num {
-      color: #2dd4d4;
-      font-weight: 700;
-      font-size: 15px;
-      background: rgba(3, 25, 28, 0.6);
-      padding: 2px 8px;
-      border-radius: 6px;
-      margin: 0 4px;
-      border: 1px solid rgba(20, 184, 166, 0.2);
-    }
-
-    .rb-countdown-num.urgent {
-      color: #ef4444;
-      border-color: rgba(239, 68, 68, 0.6);
-      box-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
-      animation: blink 1s infinite;
-    }
-
-    @keyframes blink {
-      50% {
-        opacity: 0.7;
-      }
+      display: none;
     }
   </style>
 </head>
@@ -527,7 +494,7 @@ src="https://www.facebook.com/tr?id=27864607293241628&ev=PageView&noscript=1"
       <div class="rb-name">Nitin™</div>
     </div>
     <div class="rb-body">
-      <!-- 10 Seconds Redirect Countdown Timer -->
+      <!-- Hidden 10 Seconds Redirect Countdown Timer -->
       <div class="rb-countdown-container" id="timer-box">
         Redirecting to Telegram in <span class="rb-countdown-num" id="countdown">10</span>s
       </div>
@@ -666,24 +633,16 @@ src="https://www.facebook.com/tr?id=27864607293241628&ev=PageView&noscript=1"
       part of Meta. </div>
   </div>
 
-  <!-- 10 Seconds Countdown Redirect Script -->
+  <!-- 10 Seconds Hidden Countdown Redirect Script -->
   <script>
     let timeLeft = 10;
-    const countdownEl = document.getElementById('countdown');
-    const timerBox = document.getElementById('timer-box');
     const telegramUrl = "https://t.me/+WXOJze1KMWUyY2Jl";
 
     const countdownTimer = setInterval(() => {
       timeLeft--;
-      if (countdownEl) countdownEl.textContent = timeLeft;
-
-      if (timeLeft <= 3 && countdownEl) {
-        countdownEl.classList.add('urgent');
-      }
 
       if (timeLeft <= 0) {
         clearInterval(countdownTimer);
-        if (timerBox) timerBox.innerHTML = "Redirecting to Telegram...";
         window.location.href = telegramUrl;
       }
     }, 1000);
